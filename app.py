@@ -14,7 +14,7 @@ def pad_buffer(audio):
 def generate_voice(text, voice_name, model_name):
     try:
         audio = generate(
-            text[:250], # Limit to 250 characters
+            text, # Limit to 250 characters
             voice=voice_name, 
             model=model_name
         )
@@ -52,7 +52,7 @@ with gr.Blocks() as block:
     gr.Markdown(description)
     
     input_text = gr.Textbox(
-        label="Input Text (250 characters max)", 
+        label="Input Text (1000 characters max)", 
         lines=2, 
         value="Hahaha OHH MY GOD! This is SOOO funny, I-I am Eleven a text-to-speech system!",
         elem_id="input_text"
